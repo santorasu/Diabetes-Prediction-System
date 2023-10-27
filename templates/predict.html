@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333; /* Dark text color for better readability */
+        }
+
+        .main {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 5%;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #007bff; /* Professional blue color for header */
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        table tr {
+            margin-bottom: 10px;
+        }
+
+        table td {
+            padding: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .result-container {
+        background-color: #007bff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Please Enter the Following Information:</h1>
+        <form action="result">
+            <table>
+                <tr>
+                    <td align="right">Pregnancies</td>
+                    <td align="left"><input type="text" name="n1"></td>
+                </tr>
+                <tr>
+                    <td align="right">Glucose</td>
+                    <td align="left"><input type="text" name="n2"></td>
+                </tr>
+                <tr>
+                    <td align="right">Blood Pressure</td>
+                    <td align="left"><input type="text" name="n3"></td>
+                </tr>
+                <tr>
+                    <td align="right">Skin Thickness</td>
+                    <td align="left"><input type="text" name="n4"></td>
+                </tr>
+                <tr>
+                    <td align="right">Insulin</td>
+                    <td align="left"><input type="text" name="n5"></td>
+                </tr>
+                <tr>
+                    <td align="right">BMI</td>
+                    <td align="left"><input type="text" name="n6"></td>
+                </tr>
+                <tr>
+                    <td align="right">Diabetes Pedigree</td>
+                    <td align="left"><input type="text" name="n7"></td>
+                </tr>
+                <tr>
+                    <td align="right">Age</td>
+                    <td align="left"><input type="text" name="n8"></td>
+                </tr>
+            </table>
+            <input type="submit">
+        </form>
+        <div class="result-container"> Result: {{result2}}</div>
+    </div>
+</body>
+</html>
