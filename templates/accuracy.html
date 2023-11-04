@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Accuracy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction Accuracy</h1>
+    <p>Here are the column names from the dataset:</p>
+    <ul>
+        {% for column in accuracy %}
+            <li>{{ column }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>Here are the null value check:</p>
+    <ul>
+        {% for column, count in nullcheck.items %}
+            <li>{{ column }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>NULL Count Analysis Plot:</p>
+    {{ plot_html|safe }}
+
+    <p>Outcome Count Plot:</p>
+   <!-- Inside the <body> tag of accuracy.html -->
+    <p>Pairplot:</p>
+    {{ plot_html_pairplot|safe }}
+
+</body>
+</html>

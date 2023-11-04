@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,17 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333; /* Dark text color for better readability */
+            color: #333;
         }
 
         .main {
@@ -26,14 +21,15 @@
             text-align: center;
             max-width: 600px;
             width: 90%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto; /* Center the form on the page */
         }
 
         h1 {
             font-size: 30px;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #007bff; /* Professional blue color for header */
+            color: #007bff;
         }
 
         table {
@@ -50,9 +46,10 @@
         }
 
         input[type="text"] {
-            width: calc(100% - 20px);
+            width: 100%;
             padding: 8px;
             box-sizing: border-box;
+            margin-bottom: 10px;
         }
 
         input[type="submit"] {
@@ -65,63 +62,72 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3;
         }
 
         .result-container {
-        background-color: #007bff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        margin: 20px;
-        text-align: center;
-        color: white;
-        font-weight: bold;
-    }
-
+            background-color: #007bff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="main">
+    <div class="container main">
         <h1>Please Enter the Following Information:</h1>
         <form action="result">
-            <table>
+            <table class="table">
                 <tr>
                     <td align="right">Pregnancies</td>
-                    <td align="left"><input type="text" name="n1"></td>
+                    <td align="left"><input type="text" name="n1" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">Glucose</td>
-                    <td align="left"><input type="text" name="n2"></td>
+                    <td align="left"><input type="text" name="n2" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">Blood Pressure</td>
-                    <td align="left"><input type="text" name="n3"></td>
+                    <td align="left"><input type="text" name="n3" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">Skin Thickness</td>
-                    <td align="left"><input type="text" name="n4"></td>
+                    <td align="left"><input type="text" name="n4" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">Insulin</td>
-                    <td align="left"><input type="text" name="n5"></td>
+                    <td align="left"><input type="text" name="n5" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">BMI</td>
-                    <td align="left"><input type="text" name="n6"></td>
+                    <td align="left"><input type="text" name="n6" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">Diabetes Pedigree</td>
-                    <td align="left"><input type="text" name="n7"></td>
+                    <td align="left"><input type="text" name="n7" class="form-control"></td>
                 </tr>
                 <tr>
                     <td align="right">Age</td>
-                    <td align="left"><input type="text" name="n8"></td>
+                    <td align="left"><input type="text" name="n8" class="form-control"></td>
                 </tr>
             </table>
-            <input type="submit">
+            <input type="submit" class="btn btn-primary">
         </form>
         <div class="result-container"> Result: {{result2}}</div>
+        <form action="accuracy">
+            <input type="submit" class="btn btn-secondary" value="Let's Check Accuracy">
+        </form><br>
+        <form action="correlation">
+            <input type="submit" class="btn btn-info" value="Correlation Check">
+        </form>
     </div>
+    
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

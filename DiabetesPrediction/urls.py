@@ -24,4 +24,8 @@ urlpatterns = [
     path('',views.home),
     path('predict/',views.predict),
     path("predict/result",views.result),
+    path('predict/', views.accuracy),
+    path('predict/accuracy', views.accuracy),
+    path('predict/', views.correlation),
+    path('predict/correlation', views.correlation),
 ]

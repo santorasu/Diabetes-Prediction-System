@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Correlation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        h3 {
+            color: #3498db;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Checking Correlation</h1>
+
+        <div class="container">
+            <h3 class="mt-4">Correlation between all the features before clearing</h3>
+            <div class="text-center">{{ plot_html_before|safe }}</div>
+        </div>
+
+        <div class="container">
+            <h3 class="mt-4">Correlation between all the features after clearing</h3>
+            <div class="text-center">{{ plot_html_after|safe }}</div>
+        </div>
+
+        <div class="container">
+            <h1 class="mt-4">K-Nearest Neighbor (KNN)</h1>
+            <p>Max Train Score: {{ max_train_score }} %</p>
+            <p>Max Test Score: {{ max_test_score }} %</p>
+            <p>KNN Test Score: {{ knn_test_score }}%</p>
+            <p>Best k: {{ best_k }}</p>
+            <p>Best Score: {{ best_score }}</p>
+        </div>
+
+        <div class="container">
+            <h3 class="mt-4">K-Nearest Neighbor (KNN) Decision Regions</h3>
+            <div class="text-center"><img src="data:image/png;base64,{{ knn_decision_regions_plot|safe }}" alt="KNN Decision Regions"/></div>
+        </div>
+
+        <div class="container">
+            <h3 class="mt-4">Confusion Matrix</h3>
+            <div class="text-center">{{ confusion_matrix_plot|safe }}</div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
